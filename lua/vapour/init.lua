@@ -6,26 +6,26 @@ Vapour = {}
 Vapour = {
     options = {tabwidth = 2},
     language_servers = {
-        sumneko_lua = {enabled = false},
-        bashls = {enabled = false},
-        cssls = {enabled = false},
-        html = {enabled = false},
-        tsserver = {enabled = false},
-        pyright = {enabled = false},
-        jedi_language_server = {enabled = false},
-        pylsp = {enabled = false},
-        vimls = {enabled = false},
-        yamlls = {enabled = false},
-        solargraph = {enabled = false},
-        vuels = {enabled = false},
+        sumneko_lua = {enabled = true},
+        bashls = {enabled = true},
+        cssls = {enabled = true},
+        html = {enabled = true},
+        tsserver = {enabled = true},
+        pyright = {enabled = true},
+        jedi_language_server = {enabled = true},
+        pylsp = {enabled = true},
+        vimls = {enabled = true},
+        yamlls = {enabled = true},
+        solargraph = {enabled = true},
+        vuels = {enabled = true},
         phpactor = {
-            enabled = false,
+            enabled = true,
             vapour_init = function()
                 require 'language-servers.phpactor'
             end
         },
         jsonls = {
-            enabled = false,
+            enabled = true,
             setup = {
                 commands = {
                     Format = {
@@ -36,16 +36,15 @@ Vapour = {
                 }
             }
         },
-        gopls = {enabled = false, setup = {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}}}
+        gopls = {enabled = true, setup = {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}}}
     },
     plugins = {
         indent_blankline = {enabled = true, enable_rainbow_colors = false},
         colorizer = {enabled = true},
         autopairs = {enabled = true},
-        hop = {enabled = true},
         gitsigns = {enabled = true},
         bufferline = {enabled = true},
-        galaxyline = {enabled = true},
+        lualine = {enabled = true},
         dashboard = {enabled = true},
         toggleterm = {
             enabled = true,
@@ -66,7 +65,6 @@ Vapour = {
                     t = {":ToggleTerm<cr>", "Split Below"},
                     f = {"<cmd>lua Vapour.plugins.toggleterm.toggle_float()<cr>", "Floating Terminal"},
                     l = {"<cmd>lua Vapour.plugins.toggleterm.toggle_lazygit()<cr>", "LazyGit"}
-                    -- l = {"<cmd>lua require('lspsaga.floaterm').open_float_terminal('lazygit')<cr>", "LazyGit"}
                 }
             }
         },
@@ -80,20 +78,14 @@ Vapour = {
             rainbow = {enable = true, extended_mode = false, disable = {"html"}}
         },
         vsnip = {enabled = true},
-        markdown_preview = {eanbled = true},
         telescope = {enabled = true},
         nvim_tree = {enabled = true},
         dial = {enabled = true},
         format = {enabled = true},
         nvim_comment = {enabled = true},
-        neogit = {enabled = true},
-        copilot = {enabled = false},
         cmp = {
             enabled = true,
-            sources = {
-                {name = 'cmp_tabnine'}, {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'buffer'}, {name = 'omni'},
-                {name = "dictionary", keyword_length = 2}
-            }
+            sources = {{name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'buffer'}, {name = 'omni'}, {name = "dictionary", keyword_length = 2}}
         },
         which_key = {user_defined = {}},
 
@@ -120,7 +112,8 @@ Vapour = {
     settings = {
         -- If true, :w -> :w!
         always_force_write = false,
-        colorscheme = 'tokyonight',
+        colorscheme = 'rose-pine',
+        lualine_colorscheme = 'rose-pine',
         transparent_bg = false
     }
 }

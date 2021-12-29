@@ -35,13 +35,7 @@ return packer.startup(function(use)
         disable = not is_enabled('bufferline'),
         event = 'BufWinEnter'
     }
-    use {
-        'glepnir/galaxyline.nvim',
-        branch = 'main',
-        disable = not is_enabled('galaxyline'),
-        config = "require'galaxyline-config'",
-        event = 'BufWinEnter'
-    }
+    use {'hoob3rt/lualine.nvim', disable = not is_enabled('lualine'), config = "require'lualine-config'", event = 'BufWinEnter'}
     use {'glepnir/dashboard-nvim', disable = not is_enabled('dashboard'), config = "require'dashboard-config'", event = 'BufWinEnter'}
     use {'lukas-reineke/indent-blankline.nvim', disable = not is_enabled('indent_blankline'), config = "require'blankline-config'", event = "BufRead"}
 
@@ -57,11 +51,14 @@ return packer.startup(function(use)
     use {'windwp/nvim-ts-autotag', disable = not is_enabled('treesitter'), after = 'nvim-treesitter'}
 
     -- Colorschemes
-    use 'joshdick/onedark.vim'
-    use 'gruvbox-community/gruvbox'
-    use 'shaunsingh/nord.nvim'
-    use 'folke/tokyonight.nvim'
-    use {'dracula/vim', as = 'dracula'}
+    use {'rose-pine/neovim', as = 'rose-pine', opt = true}
+    use {'joshdick/onedark.vim', opt = true}
+    use {'gruvbox-community/gruvbox', opt = true}
+    use {'shaunsingh/nord.nvim', opt = true}
+    use {'folke/tokyonight.nvim', opt = true}
+    use {'dracula/vim', as = 'dracula', opt = true}
+    use {'tiagovla/tokyodark.nvim', opt = true}
+    use {'frenzyexists/aquarium-vim', as = 'aquarium', opt = true}
 
     -- LSP and Autocomplete
     use {'neovim/nvim-lspconfig', event = "BufRead"}
@@ -77,24 +74,11 @@ return packer.startup(function(use)
     use {'hrsh7th/cmp-nvim-lsp', disable = not is_enabled('cmp')}
     use {'hrsh7th/cmp-buffer', after = "nvim-cmp", disable = not is_enabled('cmp')}
     use {'uga-rosa/cmp-dictionary', after = "nvim-cmp", disable = not is_enabled('cmp')}
-    use {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp', disable = not is_enabled('cmp')}
-    use {'github/copilot.vim', disable = not is_enabled('copilot')}
-    use {'hrsh7th/cmp-vsnip', disable = not is_enabled('cmp'), after = "nvim-cmp"}
     use {'hrsh7th/vim-vsnip', disable = not is_enabled('cmp'), after = "nvim-cmp"}
     use {'windwp/nvim-autopairs', after = get_cmp(), config = "require'autopairs-config'", disable = not is_enabled('autopairs')}
 
     -- Version Control
-    use {
-        'TimUntersberger/neogit',
-        requires = 'nvim-lua/plenary.nvim',
-        cmd = "Neogit",
-        config = "require('neogit').setup {}",
-        disable = not is_enabled('neogit')
-    }
     use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}, disable = not is_enabled('gitsigns')}
-
-    -- Language Specific
-    use {'davidgranstrom/nvim-markdown-preview', disable = not is_enabled('markdown_preview'), ft = {"markdown"}, cmd = "MarkdownPreview"}
 
     -- Terminal Integration
     use {'akinsho/nvim-toggleterm.lua', disable = not is_enabled('toggleterm'), config = 'require"toggleterm-config"'}
@@ -108,11 +92,9 @@ return packer.startup(function(use)
         config = "require'telescope-config'"
     }
     use {'kyazdani42/nvim-tree.lua', cmd = "NvimTreeToggle", disable = not is_enabled('nvim_tree'), config = "require'nvimtree-config'"}
-    use {'phaazon/hop.nvim', disable = not is_enabled('hop')}
 
     -- Other
     use {'terrortylor/nvim-comment', cmd = "CommentToggle", config = "require('nvim_comment').setup()", disable = not is_enabled('nvim_comment')}
-    use {'monaqa/dial.nvim', disable = not is_enabled('dial'), config = "require'dial-config'"}
     use {'lukas-reineke/format.nvim', disable = not is_enabled('format'), config = "require'formatting'"}
     use {'folke/which-key.nvim', event = "BufWinEnter"}
 

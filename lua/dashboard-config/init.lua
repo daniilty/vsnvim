@@ -1,19 +1,37 @@
 vim.g.dashboard_custom_header = {
-    [[__     __                           _   _       _           ]],
-    [[\ \   / /_ _ _ __   ___  _   _ _ __| \ | |_   _(_)_ __ ___  ]],
-    [[ \ \ / / _` | '_ \ / _ \| | | | '__|  \| \ \ / / | '_ ` _ \ ]],
-    [[  \ V / (_| | |_) | (_) | |_| | |  | |\  |\ V /| | | | | | |]],
-    [[   \_/ \__,_| .__/ \___/ \__,_|_|  |_| \_| \_/ |_|_| |_| |_|]],
-    [[            |_|                                             ]]
+ [[                           ▓▓▓▓▓▓▓     ]],
+ [[                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+ [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+ [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ░▓▓▓▓▓▓▓▓▓]],
+ [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░▓▓▓▓▓▓▓▓▓]],
+ [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+ [[      ▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓]],
+ [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+ [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▒▓▓▓▓▓▓▓▓▓]],
+ [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ▒▓▓▓▓▓▓▓▓▓]],
+ [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+ [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+ [[                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+ [[                          ▓▓▓▓▓▓▓      ]],
+ [[                                       ]],
+ [[             Start Editing             ]]
 }
 
 vim.g.dashboard_default_executive = 'telescope'
 
 vim.g.dashboard_custom_section = {
-    a = {description = {'  Find File          '}, command = 'Telescope find_files'},
+    a = {description = {'  File Browser       '}, command = 'Telescope file_browser'},
     d = {description = {'  Search Text        '}, command = 'Telescope live_grep'},
-    b = {description = {'  Recent Files       '}, command = 'Telescope oldfiles'},
-    e = {description = {'  Config             '}, command = 'edit ~/.config/nvim/lua/vapour/user-config/init.lua'},
-    f = {description = {'  Git                '}, command = 'LazyGit'}
+    b = {description = {'  Recent             '}, command = 'Telescope oldfiles'},
+    f = {description = {'  Git Status         '}, command = 'Telescope git_status'}
 }
-vim.g.dashboard_custom_footer = {'Do one thing, do it well - Unix philosophy'}
+
+vim.g.dashboard_custom_footer = {
+  [[            Visual Studio Code               ]],
+  [[             Editing evolved                 ]]
+}

@@ -2,7 +2,7 @@ Vapour.utils.plugins.packadd('nvim-lspconfig')
 
 local lspconfig = Vapour.utils.plugins.require('lspconfig')
 
-lspconfig.clangd.setup{}
+require'lspconfig'.clangd.setup{}
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -48,8 +48,8 @@ elseif vim.fn.has("unix") == 1 then
     sumneko_root_path = "/home/" .. USER .. "/.config/nvim/ls/lua-language-server"
     sumneko_binary = "/home/" .. USER .. "/.config/nvim/ls/lua-language-server/bin/Linux/lua-language-server"
 elseif vim.fn.has("win32") == 1 then
-    sumneko_root_path = "C:\\Users" .. USER .. "\\.config\\nvim\\ls\\lua-language-server"
-    sumneko_binary = "C:\\Users" .. USER .. "\\.config\\nvim\\ls\\lua-language-server\\bin\\Windows\\lua-language-server"
+    sumneko_root_path = "C:\\Users\\" .. USER .. "\\AppData\\Local\\nvim\\ls\\lua-language-server"
+    sumneko_binary = "C:\\Users" .. USER .. "\\AppData\\Local\\nvim\\ls\\lua-language-server\\bin\\Windows\\lua-language-server"
 elseif Vapour.language_servers.sumneko_lua['root_path'] ~= nil then
     sumneko_root_path = Vapour.language_servers.sumneko_lua.root_path
     sumneko_binary = Vapour.language_servers.sumneko_lua.binary_path
@@ -101,20 +101,3 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true
 })
 
-if Vapour.language_servers.html.enabled then
-    local configs = require 'lspconfig/configs'
-
-    if not lspconfig.ls_emmet then
-        configs.ls_emmet = {
-            default_config = {
-                cmd = {'ls_emmet', '--stdio'},
-                filetypes = {'html', 'css'},
-                root_dir = function(_)
-                    return vim.loop.cwd()
-                end,
-                settings = {}
-            }
-        }
-    end
-    lspconfig.ls_emmet.setup {capabilities = capabilities}
-end
