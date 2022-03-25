@@ -1,4 +1,5 @@
 vim.cmd('filetype plugin indent on')
+vim.cmd('set nocompatible')
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
@@ -25,7 +26,6 @@ vim.o.mouse = "a"
 
 vim.wo.wrap = false
 vim.wo.number = true
-vim.wo.cursorline = true
 vim.wo.signcolumn = "yes"
 
 vim.o.tabstop = Vapour.options.tabwidth

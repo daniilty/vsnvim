@@ -1,4 +1,4 @@
-require"format".setup {
+require"lsp-format".setup {
     ["*"] = {{cmd = {"sed -i 's/[ \t]*$//'"}}},
     html = {{cmd = {"prettier -w"}}},
     css = {{cmd = {"prettier -w"}}},
@@ -72,4 +72,3 @@ require"format".setup {
     }
 }
 
-vim.cmd('autocmd BufWritePost * FormatWrite')

@@ -27,7 +27,6 @@ end
 return packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     -- Syntax Highlighting and Visual Plugins
-    use {'norcalli/nvim-colorizer.lua', disable = not is_enabled('colorizer'), config = "require'colorizer-config'", event = 'BufRead'}
     use {
         'akinsho/nvim-bufferline.lua',
         requires = 'kyazdani42/nvim-web-devicons',
@@ -51,7 +50,6 @@ return packer.startup(function(use)
     use {'windwp/nvim-ts-autotag', disable = not is_enabled('treesitter'), after = 'nvim-treesitter'}
 
     -- Colorschemes
-    use {'rose-pine/neovim', as = 'rose-pine', opt = true}
     use {'joshdick/onedark.vim', opt = true}
     use {'gruvbox-community/gruvbox', opt = true}
     use {'shaunsingh/nord.nvim', opt = true}
@@ -59,6 +57,10 @@ return packer.startup(function(use)
     use {'dracula/vim', as = 'dracula', opt = true}
     use {'tiagovla/tokyodark.nvim', opt = true}
     use {'frenzyexists/aquarium-vim', as = 'aquarium', opt = true}
+    use({
+	    "catppuccin/nvim",
+	    as = "catppuccin"
+    })
 
     -- LSP and Autocomplete
     use {'neovim/nvim-lspconfig', event = "BufRead"}
