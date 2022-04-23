@@ -11,7 +11,7 @@ This is my VSCode-look VapourNvim based config for golang and c development
   * [clangd](https://clangd.llvm.org/installation.html)
  
 ### Most important shortcuts:
-  * Ctrl+T - toggle terminal
-  * Space + e - toggle file tree
+  * Ctrl+t - toggle terminal
+  * Ctrl+n - toggle file tree
   * ZZ - in case you don't know how to exit vim
 
