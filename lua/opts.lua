@@ -1,5 +1,5 @@
-vim.cmd('filetype plugin indent on')
 vim.cmd('set nocompatible')
+vim.cmd('filetype plugin indent on')
 vim.o.shortmess = vim.o.shortmess .. 'c'
 vim.o.hidden = true
 vim.o.whichwrap = 'b,s,<,>,[,],h,l'
@@ -28,18 +28,19 @@ vim.wo.wrap = false
 vim.wo.number = true
 vim.wo.signcolumn = "yes"
 
-vim.o.tabstop = Vapour.options.tabwidth
-vim.bo.tabstop = Vapour.options.tabwidth
-vim.o.softtabstop = Vapour.options.tabwidth
-vim.bo.softtabstop = Vapour.options.tabwidth
-vim.o.shiftwidth = Vapour.options.tabwidth
-vim.bo.shiftwidth = Vapour.options.tabwidth
+local tab = 2
+
+vim.o.tabstop = tab
+vim.bo.tabstop = tab
+vim.o.softtabstop = tab
+vim.bo.softtabstop = tab
+vim.o.shiftwidth = tab
+vim.bo.shiftwidth = tab
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
 vim.bo.expandtab = true
 
--- Disable various builtin plugins in Vim that bog down speed
 vim.g.loaded_matchparen = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_logiPat = 1
@@ -56,3 +57,4 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_remote_plugins = 1
 
 vim.opt.dictionary:append("/usr/share/dict/words")
+

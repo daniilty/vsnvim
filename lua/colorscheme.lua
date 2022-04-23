@@ -1,7 +1,7 @@
 local catppuccin = require("catppuccin")
 
 catppuccin.setup({
-  transparent_background = Vapour.settings.transparent_bg,
+  transparent_background = false,
   term_colors = false,
   styles = {comments = "italic", functions = "italic", keywords = "italic", strings = "NONE", variables = "NONE"},
   integrations = {
@@ -31,5 +31,6 @@ catppuccin.setup({
     hop = false
   }
 })
+
 vim.cmd('colorscheme catppuccin')
-Vapour.settings.lualine_colorscheme = "catppuccin"
+

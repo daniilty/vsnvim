@@ -35,3 +35,4 @@ vim.g.dashboard_custom_footer = {
   [[            Visual Studio Code               ]],
   [[             Editing evolved                 ]]
 }
+

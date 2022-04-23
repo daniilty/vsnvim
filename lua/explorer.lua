@@ -1,4 +1,4 @@
-require'nvim-tree'.setup {
+require('nvim-tree').setup {
   auto_close = false,
   auto_reload_on_write = true,
   disable_netrw = false,
@@ -92,3 +92,4 @@ require'nvim-tree'.setup {
     },
   },
 }
+

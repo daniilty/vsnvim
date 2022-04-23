@@ -1,6 +1,6 @@
 require('lualine').setup {
     options = {
-        theme = Vapour.settings.lualine_colorscheme,
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = { left = '', right = '' },
     },
@@ -27,3 +27,4 @@ require('lualine').setup {
     },
     tabline = {},
 }
+
