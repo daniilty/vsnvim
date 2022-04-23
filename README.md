@@ -1,7 +1,5 @@
 # Neovim IDE
 
-This is my VSCode-look VapourNvim based config for golang and c development
-
 ![Screenshot](https://raw.githubusercontent.com/daniilty/nvim-c-go-ide/master/src/screenshot.png)
 
 ### Requirements:
