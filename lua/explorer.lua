@@ -11,7 +11,6 @@ require('nvim-tree').setup {
   update_cwd = false,
   view = {
     width = 30,
-    height = 30,
     side = "left",
     preserve_window_proportions = false,
     number = false,
@@ -49,13 +48,13 @@ require('nvim-tree').setup {
     },
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
     custom = {},
     exclude = {},
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 400,
   },
   actions = {
