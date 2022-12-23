@@ -21,10 +21,6 @@ return packer.startup(function(use)
   }
   use 'kyazdani42/nvim-web-devicons'
   use {
-    'glepnir/dashboard-nvim',
-    event = 'BufWinEnter'
-  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
@@ -51,7 +47,10 @@ return packer.startup(function(use)
   use 'uga-rosa/cmp-dictionary'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'neovim/nvim-lspconfig'
-
+  
+  -- git stuff
+  use 'lewis6991/gitsigns.nvim'
+  
   if packer_bootstrap then
     packer.sync()
   end
