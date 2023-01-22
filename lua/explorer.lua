@@ -88,5 +88,55 @@ require('nvim-tree').setup {
       git = false,
     },
   },
+  renderer = {
+        highlight_git = true,
+        highlight_opened_files = "none",
+
+        root_folder_label = function(path)
+            local project = vim.fn.fnamemodify(path, ":t")
+            return string.upper(project)
+        end,
+
+        indent_markers = {
+            enable = true,
+        },
+
+        icons = {
+            webdev_colors = false,
+            show = {
+                file = true,
+                folder = true,
+                folder_arrow = true,
+                git = true,
+            },
+            glyphs = {
+                default = "",
+                symlink = "",
+                folder = {
+                    default = "",
+                    empty = "",
+                    empty_open = "",
+                    open = "",
+                    symlink = "",
+                    symlink_open = "",
+                    arrow_open = "",
+                    arrow_closed = "",
+                },
+                git = {
+                    staged = "✓",
+                    deleted = "",
+                    renamed = "➜",
+                    unstaged = "",
+                    -- unstaged = "✗",
+                    unmerged = "",
+                    -- unmerged = "",
+                    untracked = "",
+                    -- untracked = "★",
+                    ignored = "",
+                    -- ignored = "◌",
+                },
+            },
+        },
+    },
 }
 
