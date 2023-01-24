@@ -47,7 +47,11 @@ return packer.startup(function(use)
   use 'uga-rosa/cmp-dictionary'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'neovim/nvim-lspconfig'
-  
+  use {
+    'onsails/lspkind.nvim',
+    as = 'lspkind'
+  }
+
   -- git stuff
   use 'lewis6991/gitsigns.nvim'
   
