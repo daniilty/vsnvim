@@ -8,7 +8,7 @@ require('bufferline').setup {
     middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
     indicator = {
         icon = '⏽', -- this should be omitted if indicator style is not 'icon'
-        style = 'icon',
+        style = 'none',
     },
     buffer_close_icon = '',
     modified_icon = '●',
@@ -28,10 +28,10 @@ require('bufferline').setup {
     offsets = {
         {
             filetype = "NvimTree",
-            text = "EXPLORER",
+            text = "",
             text_align = "left",
             separator = true
-        }
+        },
     },
     color_icons = true, -- whether or not to add the filetype icon highlights
     show_buffer_icons = false, -- disable filetype icons for buffers
@@ -43,14 +43,14 @@ require('bufferline').setup {
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thin",
+    separator_style = "thick",
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {
         enabled = true,
         delay = 200,
-        reveal = {'close'}
-    }
+        reveal = {'close'},
+    },
   }
 }
 
