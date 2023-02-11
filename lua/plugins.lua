@@ -21,12 +21,71 @@ return packer.startup(function(use)
   }
   use 'kyazdani42/nvim-web-devicons'
   use {
-    'glepnir/dashboard-nvim',
-    event = 'BufWinEnter'
-  }
-  use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
+  }
+  use {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        theme = 'doom',
+        config = {
+          header = {
+             '                                       ',
+             '                                       ',
+             '                           ▓▓▓▓▓▓▓     ',
+             '                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ',
+             '                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓',
+             '▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ░▓▓▓▓▓▓▓▓▓',
+             '  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░▓▓▓▓▓▓▓▓▓',
+             '    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓',
+             '      ▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓',
+             '    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓',
+             '  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▒▓▓▓▓▓▓▓▓▓',
+             '▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ▒▓▓▓▓▓▓▓▓▓',
+             '▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓',
+             '  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓',
+             '                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ',
+             '                          ▓▓▓▓▓▓▓      ',
+             '                                       ',
+             '                                       ',
+          },
+          center = {
+            {
+              icon = ' ',
+              icon_hl = '@variable',
+              desc = 'File Browser',
+              group = 'Label',
+              action = 'Telescope find_files',
+              key = 'f',
+            },
+            {
+              icon = ' ',
+              icon_hl = '@variable',
+              desc = 'Search Text',
+              group = 'Label',
+              action = 'Telescope live_grep',
+              key = 'a',
+            },
+          },
+          footer = {
+            '                                             ',
+            '            Visual Studio Code               ',
+            '             Editing evolved                 '
+          },
+          week_header = {
+           enable = false,
+          },
+        },
+      }
+    end,
+    requires = {'nvim-tree/nvim-web-devicons'}
   }
 
   -- productivity
@@ -42,6 +101,10 @@ return packer.startup(function(use)
       'kyazdani42/nvim-web-devicons',
     }
   }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   -- autocomplete/language servers stuff
   use 'hrsh7th/nvim-cmp'
@@ -51,7 +114,14 @@ return packer.startup(function(use)
   use 'uga-rosa/cmp-dictionary'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'neovim/nvim-lspconfig'
+  use {
+    'onsails/lspkind.nvim',
+    as = 'lspkind'
+  }
 
+  -- git stuff
+  use 'lewis6991/gitsigns.nvim'
+  
   if packer_bootstrap then
     packer.sync()
   end

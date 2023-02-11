@@ -1,4 +1,5 @@
 local catppuccin = require("catppuccin")
+local colors = require("palettes").get_palette()
 
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -29,36 +30,7 @@ require("catppuccin").setup({
         operators = {},
     },
     color_overrides = {
-      all = {
-            rosewater = "#F5E0DC",
-            flamingo = "#F2CDCD",
-            pink = "#F5C2E7",
-            mauve = "#C1AAEC",
-            red = "#ECAAAA",
-            maroon = "#EBA0AC",
-            peach = "#FAB387",
-            yellow = "#ECE5AA",
-            green = "#AAECAD",
-            teal = "#AAECAD",
-            sky = "#89DCEB",
-            sapphire = "#74C7EC",
-            blue = "#AAB2EC",
-            lavender = "#C1AAEC",
-
-            text = "#E3E3E3",
-            subtext1 = "#BAC2DE",
-            subtext0 = "#A6ADC8",
-            overlay2 = "#9399B2",
-            overlay1 = "#7F849C",
-            overlay0 = "#6C7086",
-            surface2 = "#585B70",
-            surface1 = "#45475A",
-            surface0 = "#313244",
-
-            base = "#181B21",
-            mantle = "#13151A",
-            crust = "#111417",
-        }
+      all = colors,
     },
     custom_highlights = {},
     integrations = {
@@ -68,6 +40,39 @@ require("catppuccin").setup({
         telescope = true,
         treesitter = true,
     },
+    custom_highlights = function(C)
+			return {
+				CmpItemKindSnippet = { fg = colors.base, bg = colors.mauve },
+				CmpItemKindKeyword = { fg = colors.base, bg = colors.red },
+				CmpItemKindText = { fg = colors.base, bg = colors.teal },
+				CmpItemKindMethod = { fg = colors.base, bg = colors.blue },
+				CmpItemKindConstructor = { fg = colors.base, bg = colors.blue },
+				CmpItemKindFunction = { fg = colors.base, bg = colors.blue },
+				CmpItemKindFolder = { fg = colors.base, bg = colors.blue },
+				CmpItemKindModule = { fg = colors.base, bg = colors.blue },
+				CmpItemKindConstant = { fg = colors.base, bg = colors.peach },
+				CmpItemKindField = { fg = colors.base, bg = colors.green },
+				CmpItemKindProperty = { fg = colors.base, bg = colors.green },
+				CmpItemKindEnum = { fg = colors.base, bg = colors.green },
+				CmpItemKindUnit = { fg = colors.base, bg = colors.green },
+				CmpItemKindClass = { fg = colors.base, bg = colors.yellow },
+				CmpItemKindVariable = { fg = colors.base, bg = colors.flamingo },
+				CmpItemKindFile = { fg = colors.base, bg = colors.blue }, CmpItemKindInterface = { fg = colors.base, bg = colors.yellow },
+				CmpItemKindColor = { fg = colors.base, bg = colors.red },
+				CmpItemKindReference = { fg = colors.base, bg = colors.red },
+				CmpItemKindEnumMember = { fg = colors.base, bg = colors.red },
+				CmpItemKindStruct = { fg = colors.base, bg = colors.blue },
+				CmpItemKindValue = { fg = colors.base, bg = colors.peach },
+				CmpItemKindEvent = { fg = colors.base, bg = colors.blue },
+				CmpItemKindOperator = { fg = colors.base, bg = colors.blue },
+				CmpItemKindTypeParameter = { fg = colors.base, bg = colors.blue },
+				CmpItemKindCopilot = { fg = colors.base, bg = colors.teal },
+		  	NvimTreeWinSeparator = {
+			    fg = colors.surface1,
+			    bg = O.transparent_background and C.none or C.base,
+		    },	
+    }
+	  end,   
 })
 
 vim.cmd('colorscheme catppuccin')

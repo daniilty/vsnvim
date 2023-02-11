@@ -15,8 +15,11 @@ lspconfig.jsonls.setup {
 }
 
 lspconfig.gopls.setup {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}}
-
 lspconfig.rust_analyzer.setup{}
+lspconfig.html.setup{
+  capabilities = capabilities,
+}
+lspconfig.tsserver.setup{}
 
 local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
 
@@ -36,7 +39,8 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true
 })
 
-vim.cmd('autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 1000)')
-vim.cmd('autocmd BufWritePre *.c lua vim.lsp.buf.formatting_sync(nil, 1000)')
-vim.cmd('autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)')
+vim.cmd('autocmd BufWritePre *.go lua vim.lsp.buf.format()')
+vim.cmd('autocmd BufWritePre *.c lua vim.lsp.buf.format()')
+vim.cmd('autocmd BufWritePre *.rs lua vim.lsp.buf.format()')
+vim.cmd('autocmd BufWritePre *.ts,*.js,*.tsx,*.jsx lua vim.lsp.buf.format()')
 
