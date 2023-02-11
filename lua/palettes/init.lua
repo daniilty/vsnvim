@@ -27,9 +27,9 @@ function M.get_palette()
     surface1 = "#45475A",
     surface0 = "#313244",
 
-    base = "#181B21",
-    mantle = "#13151A",
-    crust = "#111417", 
+    base = "#000000",
+    mantle = "#000000",
+    crust = "#000000", 
   }
 end
 
