@@ -4,7 +4,7 @@ This build of neovim is intended to give user a nice ide-like experience in thei
 Dashboard uses VSCode logo, but this config is not intended to be similar to this garbage.
 
 
-![Screenshot](https://raw.githubusercontent.com/daniilty/nvim-c-go-ide/master/src/screenshot.png)
+![Screenshot](https://github.com/daniilty/vsnvim/blob/master/src/screenshot.png)
 
 ### Requirements:
   * [nvim](https://neovim.io/)
