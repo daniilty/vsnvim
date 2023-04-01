@@ -20,6 +20,7 @@ lspconfig.html.setup{
   capabilities = capabilities,
 }
 lspconfig.tsserver.setup{}
+lspconfig.pyright.setup{}
 
 local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
 
