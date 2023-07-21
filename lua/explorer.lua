@@ -2,11 +2,6 @@ require('nvim-tree').setup {
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
-  hijack_netrw = true,
-  hijack_unnamed_buffer_when_opening = false,
-  ignore_buffer_on_setup = false,
-  open_on_setup = false,
-  open_on_tab = false,
   sort_by = "name",
   update_cwd = false,
   view = {
@@ -16,26 +11,6 @@ require('nvim-tree').setup {
     number = false,
     relativenumber = false,
     signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        -- user mappings go here
-      },
-    },
-  },
-  hijack_directories = {
-    enable = true,
-    auto_open = true,
-  },
-  update_focused_file = {
-    enable = false,
-    update_cwd = false,
-    ignore_list = {},
-  },
-  ignore_ft_on_setup = {},
-  system_open = {
-    cmd = nil,
-    args = {},
   },
   diagnostics = {
     enable = false,
@@ -47,14 +22,9 @@ require('nvim-tree').setup {
       error = "",
     },
   },
-  filters = {
-    dotfiles = true,
-    custom = {},
-    exclude = {},
-  },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     timeout = 400,
   },
   actions = {

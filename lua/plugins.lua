@@ -119,6 +119,11 @@ return packer.startup(function(use)
     'onsails/lspkind.nvim',
     as = 'lspkind'
   }
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua'
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
 
   -- git stuff
   use 'lewis6991/gitsigns.nvim'

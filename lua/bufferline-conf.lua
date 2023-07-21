@@ -21,7 +21,6 @@ require('bufferline').setup {
     tab_size = 18,
     diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
-    -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
         return "("..count..")"
     end,
@@ -36,7 +35,6 @@ require('bufferline').setup {
     color_icons = true, -- whether or not to add the filetype icon highlights
     show_buffer_icons = false, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
-    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
     show_close_icon = true,
     show_tab_indicators = true,
     show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
@@ -45,12 +43,6 @@ require('bufferline').setup {
     -- [focused and unfocused]. eg: { '|', '|' }
     separator_style = "thick",
     enforce_regular_tabs = false,
-    always_show_bufferline = true,
-    hover = {
-        enabled = true,
-        delay = 200,
-        reveal = {'close'},
-    },
   }
 }
 
