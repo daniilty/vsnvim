@@ -1,3 +1,4 @@
+local colors = require("palettes").get_palette()
 local lspconfig = require('lspconfig')
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -14,17 +15,46 @@ lspconfig.jsonls.setup {
     }
 }
 
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#000000]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#000000]]
+
+local border = {
+  
+  {"╭", "FloatBorder"},
+ 
+  {"─", "FloatBorder"},
+  
+  {"╮", "FloatBorder"},
+  
+  {"│", "FloatBorder"},
+  
+  {"╯", "FloatBorder"},
+  
+  {"─", "FloatBorder"},
+  
+  {"╰", "FloatBorder"},
+      
+  {"│", "FloatBorder"},
+}
+
+-- LSP settings (for overriding per client)
+local handlers =  {
+  ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = border}),
+  ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, {border = border }),
+}
+
 require('go').setup()
 
-lspconfig.gopls.setup {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}}
-lspconfig.rust_analyzer.setup{}
+lspconfig.gopls.setup {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}, handlers = handlers}
+lspconfig.rust_analyzer.setup{handlers = handlers}
 lspconfig.html.setup{
   capabilities = capabilities,
+  handlers = handlers,
 }
-lspconfig.tsserver.setup{}
-lspconfig.pyright.setup{}
+lspconfig.tsserver.setup{handlers = handlers}
+lspconfig.pyright.setup{handlers = handlers}
 
-local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
+local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
 
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
