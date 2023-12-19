@@ -25,7 +25,7 @@ function M.get_palette()
     overlay0 = "#6C7086",
     surface2 = "#585B70",
     surface1 = "#45475A",
-    surface0 = "#313244",
+    surface0 = "#222222",
 
     base = "#000000",
     mantle = "#000000",

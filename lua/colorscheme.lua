@@ -68,9 +68,13 @@ require("catppuccin").setup({
 				CmpItemKindTypeParameter = { fg = colors.base, bg = colors.blue },
 				CmpItemKindCopilot = { fg = colors.base, bg = colors.teal },
 		  	NvimTreeWinSeparator = {
-			    fg = colors.surface1,
+			    fg = colors.surface0,
 			    bg = O.transparent_background and C.none or C.base,
-		    },	
+		    },
+        WinSeparator = {
+			    fg = colors.surface0,
+			    bg = O.transparent_background and C.none or C.base,
+        },
     }
 	  end,   
 })
