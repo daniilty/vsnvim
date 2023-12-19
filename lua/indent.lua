@@ -1,7 +1,5 @@
 local colors = require("palettes").get_palette()
 
-vim.opt.list = true
-
 local highlight = {
     "RainbowRed",
     "RainbowYellow",
@@ -25,11 +23,30 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = colors.teal })
 end)
 
-require("ibl").setup { 
-  indent = { highlight = highlight, char = "" },
-    whitespace = {
-        highlight = highlight,
-        remove_blankline_trail = false,
+vim.g.rainbow_delimiters = { highlight = highlight }
+require("ibl").setup {
+  indent = {
+    char = "·",
+  },
+  scope = {
+    char = "|",
+    highlight = highlight,
+    show_end = false,
+    show_start = false,
+  },
+  exclude = {
+    filetypes = {
+      "lspinfo",
+      "packer",
+      "checkhealth",
+      "help",
+      "man",
+      "gitcommit",
+      "TelescopePrompt",
+      "TelescopeResults",
+      "dashboard",
     },
-    scope = { enabled = false },
+  },
 }
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
