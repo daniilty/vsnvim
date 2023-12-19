@@ -61,7 +61,7 @@ require('lualine').setup {
       lualine_b = {},
       lualine_c = {
         {'filename', separator = { left = '', right = '⏽' }, icon = ''},
-        {'branch', icon = '  '},
+        {'branch', icon = '┃  '},
       },
       lualine_x = {
         {'hostname', separator = { left = '', right = '' }, icon = ''},
