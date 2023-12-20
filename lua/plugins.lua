@@ -105,6 +105,10 @@ return packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
+  } 
+  use {
+    'nvim-pack/nvim-spectre',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- autocomplete/language servers stuff
@@ -130,6 +134,7 @@ return packer.startup(function(use)
         require('Comment').setup()
     end
   }
+  
   -- git stuff
   use 'lewis6991/gitsigns.nvim'
   
