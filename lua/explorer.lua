@@ -13,8 +13,8 @@ require('nvim-tree').setup {
     signcolumn = "yes",
   },
   diagnostics = {
-    enable = false,
-    show_on_dirs = false,
+    enable = true,
+    show_on_dirs = true,
     icons = {
       hint = "",
       info = "",
@@ -69,6 +69,13 @@ require('nvim-tree').setup {
 
         indent_markers = {
             enable = true,
+            icons  = {
+                corner = "╰",
+                edge = "│",
+                item = "│",
+                bottom = "─",
+                none = " ",
+            },
         },
 
         icons = {
