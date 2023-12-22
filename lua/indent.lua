@@ -29,7 +29,7 @@ require("ibl").setup {
     char = "·",
   },
   scope = {
-    char = "|",
+    char = "┃",
     highlight = highlight,
     show_end = false,
     show_start = false,
