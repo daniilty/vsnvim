@@ -110,7 +110,8 @@ return packer.startup(function(use)
     'nvim-pack/nvim-spectre',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-
+  use 'folke/zen-mode.nvim'
+  
   -- autocomplete/language servers stuff
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
