@@ -3,17 +3,29 @@
 This build of neovim is intended to give user a nice ide-like experience in their terminals.
 Dashboard uses VSCode logo, but this config is not intended to be similar to this garbage.
 
-
 ![Screenshot](https://github.com/daniilty/vsnvim/blob/master/src/screenshot.png)
 
-### Requirements:
-  * [nvim](https://neovim.io/)
-  * [gopls](https://pkg.go.dev/golang.org/x/tools/gopls#readme-installation)
-  * [clangd](https://clangd.llvm.org/installation.html)
- 
-### Most important shortcuts:
+### Useflul features
+
+* Lazy load(1.5x times faster than packer)
+* LSP support for go, c, rust, python, json, js, etc
+* Terminal, file explorer
+* Zen mode
+* Dashboard
+* Rainbow indents
+* Git signs
+* In file search
+
+![Screenshot1](https://github.com/daniilty/vsnvim/blob/master/src/s1.png)
+![Screenshot2](https://github.com/daniilty/vsnvim/blob/master/src/s2.png)
+![Screenshot3](https://github.com/daniilty/vsnvim/blob/master/src/s3.png)
+
+
+### Some shortcuts:
   * Ctrl+t - toggle terminal
   * Ctrl+n - toggle file tree
+  * Ctrl+s - toggle search field
+  * Ctrl+m - toggle zen mode
   * ZZ - in case you don't know how to exit vim
   * Esc - to exit telescope
   * Ctrl+u - rename function/variable/class/etc... using lsp
