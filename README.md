@@ -5,7 +5,7 @@ Dashboard uses VSCode logo, but this config is not intended to be similar to thi
 
 ![Screenshot](https://github.com/daniilty/vsnvim/blob/master/src/screenshot.png)
 
-### Useflul features
+### Useful features
 
 * Lazy load(1.5x times faster than packer)
 * LSP support for go, c, rust, python, json, js, etc
