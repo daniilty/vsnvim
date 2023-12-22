@@ -1,31 +1,32 @@
-local fn = vim.fn
-
--- automatically install packer
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd [[packadd packer.nvim]]
-end
-
-local packer = require('packer')
-
-return packer.startup(function(use)
-  -- package manager
-  use 'wbthomason/packer.nvim'
-
-  -- some pretty stuff
-  use 'nvim-lualine/lualine.nvim'
-  use {
+return {
+  {
+    'nvim-lualine/lualine.nvim',
+    lazy = true,
+  },
+  
+  {
     'catppuccin/nvim',
-    as = 'catppuccin'
-  }
-  use 'kyazdani42/nvim-web-devicons'
-  use {
+    name = 'catppuccin'
+  },
+
+  {
+    'kyazdani42/nvim-web-devicons',
+    lazy = true,
+  },
+
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use "lukas-reineke/indent-blankline.nvim"
-  use {
+    build = function()
+      require("nvim-treesitter.install").update({ with_sync = true })()
+    end,
+  },
+  
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    lazy = true,
+  },
+  
+  {
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     config = function()
@@ -86,60 +87,114 @@ return packer.startup(function(use)
         },
       }
     end,
-    requires = {'nvim-tree/nvim-web-devicons'}
-  }
+    dependencies = {'nvim-tree/nvim-web-devicons'},
+    lazy = true,
+  },
 
   -- productivity
-  use 'akinsho/nvim-toggleterm.lua'
-  use {
+  {
+    'akinsho/nvim-toggleterm.lua',
+    lazy = true,
+  },
+  
+  {
     'akinsho/bufferline.nvim',
-    tag = "*",
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
-  use {
+    version = "*",
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
+    lazy = true,
+  },
+
+  {
     'kyazdani42/nvim-tree.lua',
-    requires = {
+    dependencies = {
       'kyazdani42/nvim-web-devicons',
-    }
-  }
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  } 
-  use {
+    },
+    lazy = true,
+  },
+
+  {
+    'nvim-telescope/telescope.nvim', version = '0.1.1',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    lazy = true,
+  }, 
+ 
+  {
     'nvim-pack/nvim-spectre',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use 'folke/zen-mode.nvim'
+    dependencies = { {'nvim-lua/plenary.nvim'} },
+    lazy = true,
+  },
+  
+  {
+  'folke/zen-mode.nvim',
+    lazy = true,
+  },
   
   -- autocomplete/language servers stuff
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'uga-rosa/cmp-dictionary'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'neovim/nvim-lspconfig'
-  use {
+  {
+  'hrsh7th/nvim-cmp',
+    lazy = false,
+  },
+  {
+  'hrsh7th/cmp-buffer',
+    lazy = false,
+  },
+  {
+  'hrsh7th/cmp-path',
+    lazy = false,
+  },
+  {
+  'hrsh7th/cmp-cmdline',
+    lazy = false,
+  },
+  {
+  'uga-rosa/cmp-dictionary',
+    lazy = false,
+  },
+  {
+  'hrsh7th/cmp-nvim-lsp',
+    lazy = true,
+  },
+  {
+  'neovim/nvim-lspconfig',
+    lazy = true,
+  },
+  
+  {
     'onsails/lspkind.nvim',
-    as = 'lspkind'
-  }
-  use 'ray-x/go.nvim'
-  use 'ray-x/guihua.lua'
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'theHamsta/nvim-dap-virtual-text'
-  use {
+    name = 'lspkind'
+  },
+  
+  {
+    'ray-x/go.nvim',
+    lazy = true,
+  },
+  {
+    'ray-x/guihua.lua',
+    lazy = true,
+  },
+  {
+    'mfussenegger/nvim-dap',
+    lazy = true,
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    lazy = true,
+  },
+  {
+    'theHamsta/nvim-dap-virtual-text',
+    lazy = true,
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
-    end
-  }
-  
+    end,
+    lazy = true,
+  },
+ 
   -- git stuff
-  use 'lewis6991/gitsigns.nvim'
-  
-  if packer_bootstrap then
-    packer.sync()
-  end
-end)
+  {
+  'lewis6991/gitsigns.nvim', 
+    lazy = true,
+  },
+}
