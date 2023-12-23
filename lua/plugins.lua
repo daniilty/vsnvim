@@ -25,6 +25,20 @@ return {
     config = function()
       require('nvim-treesitter.configs').setup(require('treesitter-conf'))
     end,
+    event = {
+      'BufReadPost *.go',
+      'BufReadPost *.rs',
+      'BufReadPost *.c',
+      'BufReadPost *.gcc',
+      'BufReadPost *.h',
+      'BufReadPost *.ts',
+      'BufReadPost *.js',
+      'BufReadPost *.html',
+      'BufReadPost *.css',
+      'BufReadPost *.scss',
+      'BufReadPost *.lua',
+    },
+    lazy = true,
   },
   
   {
@@ -175,25 +189,25 @@ return {
   
   {
     'neovim/nvim-lspconfig',
-    lazy = false,               
+    lazy = true,               
     config = require('ls'),
     depedencies = {
-      'hrsh7th/cmp-nvim-lsp',
       {
         'onsails/lspkind.nvim',
         name = 'lspkind',
       },
     },
     event = {
-      'BufEnter *.go',
-      'BufEnter *.rs',
-      'BufEnter *.c',
-      'BufEnter *.gcc',
-      'BufEnter *.h',
-      'BufEnter *.ts',
-      'BufEnter *.js',
-      'BufEnter *.html',
+      'BufReadPost *.go',
+      'BufReadPost *.rs',
+      'BufReadPost *.c',
+      'BufReadPost *.gcc',
+      'BufReadPost *.h',
+      'BufReadPost *.ts',
+      'BufReadPost *.js',
+      'BufReadPost *.html',
     },
+    cmd = { "LspInfo", "LspInstall", "LspUninstall" },
   },
   
   
@@ -203,7 +217,7 @@ return {
     config = function()
       require('go').setup()
     end,
-    event = 'BufEnter *.go',
+    event = 'BufReadPost *.go',
     dependencies = {
       'ray-x/guihua.lua',
       'mfussenegger/nvim-dap',

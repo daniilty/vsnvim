@@ -2,9 +2,6 @@ return function()
   local colors = require("palettes").get_palette()
   local lspconfig = require('lspconfig')
 
-  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-
   lspconfig.clangd.setup{}
   lspconfig.jsonls.setup {
       commands = {
@@ -46,10 +43,7 @@ return function()
 
   lspconfig.gopls.setup {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}, handlers = handlers}
   lspconfig.rust_analyzer.setup{handlers = handlers}
-  lspconfig.html.setup{
-    capabilities = capabilities,
-    handlers = handlers,
-  }
+  lspconfig.html.setup{handlers = handlers,}
   lspconfig.tsserver.setup{handlers = handlers}
   lspconfig.pyright.setup{handlers = handlers}
 
