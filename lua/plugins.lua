@@ -2,11 +2,14 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     lazy = true,
+    config = require('lualine-conf'),
+    event = 'BufEnter',
   },
   
   {
     'catppuccin/nvim',
-    name = 'catppuccin'
+    name = 'catppuccin',
+    lazy = false,
   },
 
   {
@@ -19,11 +22,18 @@ return {
     build = function()
       require("nvim-treesitter.install").update({ with_sync = true })()
     end,
+    config = function()
+      require('nvim-treesitter.configs').setup(require('treesitter-conf'))
+    end,
   },
   
   {
     'lukas-reineke/indent-blankline.nvim',
     lazy = true,
+    event = 'BufEnter',
+    config = function()
+      require("ibl").setup(require('indent'))
+    end,
   },
   
   {
@@ -94,6 +104,9 @@ return {
   -- productivity
   {
     'akinsho/nvim-toggleterm.lua',
+    config = function()
+      require('toggleterm').setup(require('term'))
+    end,
     lazy = true,
   },
   
@@ -102,6 +115,10 @@ return {
     version = "*",
     dependencies = { 'kyazdani42/nvim-web-devicons' },
     lazy = true,
+    event = 'BufEnter',
+    config = function ()
+      require('bufferline').setup(require('bufferline-conf'))
+    end,
   },
 
   {
@@ -110,6 +127,10 @@ return {
       'kyazdani42/nvim-web-devicons',
     },
     lazy = true,
+    config = function()
+      require('nvim-tree').setup(require('explorer'))
+    end,
+    cmd = 'NvimTreeToggle',
   },
 
   {
@@ -120,70 +141,76 @@ return {
  
   {
     'nvim-pack/nvim-spectre',
-    dependencies = { {'nvim-lua/plenary.nvim'} },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     lazy = true,
   },
   
   {
-  'folke/zen-mode.nvim',
+    'folke/zen-mode.nvim',
     lazy = true,
+    config = function()
+      require("zen-mode").setup(require('zen'))
+    end,
   },
   
   -- autocomplete/language servers stuff
   {
-  'hrsh7th/nvim-cmp',
-    lazy = false,
-  },
-  {
-  'hrsh7th/cmp-buffer',
-    lazy = false,
-  },
-  {
-  'hrsh7th/cmp-path',
-    lazy = false,
-  },
-  {
-  'hrsh7th/cmp-cmdline',
-    lazy = false,
-  },
-  {
-  'uga-rosa/cmp-dictionary',
-    lazy = false,
-  },
-  {
-  'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/nvim-cmp',
     lazy = true,
-  },
-  {
-  'neovim/nvim-lspconfig',
-    lazy = true,
+    event = "InsertEnter",
+    dependencies = {
+      'hrsh7th/cmp-buffer',  
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-cmdline',
+      'uga-rosa/cmp-dictionary',
+      'hrsh7th/cmp-nvim-lsp',
+      {
+        'onsails/lspkind.nvim',
+        name = 'lspkind',
+      },
+    },
+    config = require('cmp-conf'),
   },
   
   {
-    'onsails/lspkind.nvim',
-    name = 'lspkind'
+    'neovim/nvim-lspconfig',
+    lazy = false,               
+    config = require('ls'),
+    depedencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      {
+        'onsails/lspkind.nvim',
+        name = 'lspkind',
+      },
+    },
+    event = {
+      'BufEnter *.go',
+      'BufEnter *.rs',
+      'BufEnter *.c',
+      'BufEnter *.gcc',
+      'BufEnter *.h',
+      'BufEnter *.ts',
+      'BufEnter *.js',
+      'BufEnter *.html',
+    },
   },
+  
   
   {
     'ray-x/go.nvim',
     lazy = true,
+    config = function()
+      require('go').setup()
+    end,
+    event = 'BufEnter *.go',
+    dependencies = {
+      'ray-x/guihua.lua',
+      'mfussenegger/nvim-dap',
+      'rcarriga/nvim-dap-ui',
+      'theHamsta/nvim-dap-virtual-text',
+    },
   },
-  {
-    'ray-x/guihua.lua',
-    lazy = true,
-  },
-  {
-    'mfussenegger/nvim-dap',
-    lazy = true,
-  },
-  {
-    'rcarriga/nvim-dap-ui',
-    lazy = true,
-  },
-  {
-    'theHamsta/nvim-dap-virtual-text',
-    lazy = true,
-  },
+
   {
     'numToStr/Comment.nvim',
     config = function()
@@ -194,7 +221,11 @@ return {
  
   -- git stuff
   {
-  'lewis6991/gitsigns.nvim', 
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup(require('git'))
+    end,
     lazy = true,
+    event = 'BufEnter',
   },
 }

@@ -1,4 +1,4 @@
-require('bufferline').setup {
+return {
   options = {
     mode = "buffers", -- set to "tabs" to only show tabpages instead
     numbers = "none",

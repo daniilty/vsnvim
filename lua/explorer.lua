@@ -1,4 +1,4 @@
-require('nvim-tree').setup {
+return {
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,

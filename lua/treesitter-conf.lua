@@ -1,4 +1,4 @@
-require('nvim-treesitter.configs').setup {
+return {
   -- A list of parser names, or "all"
   ensure_installed = { "c", "go", "rust", "javascript", "html", "scss", "css", "lua" },
 

@@ -1,45 +1,46 @@
-local colors = require("palettes").get_palette()
-local transparent_bg = colors.base
+return function()
+  local colors = require("palettes").get_palette()
+  local transparent_bg = colors.base
 
-local custom_theme = {
-  normal = {
-    a = { bg = transparent_bg, fg = colors.lavender, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.lavender, gui = "bold" },
-    c = { bg = colors.lavender, fg = colors.base, gui = "bold" },
-  },
-  insert = {
-    a = { bg = transparent_bg, fg = colors.teal, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.teal, gui = "bold" },
-    c = { bg = colors.teal, fg = colors.base, gui = "bold" },
-  },
-  terminal = {
-    a = { bg = colors.base, fg = colors.green, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.green, gui = "bold" },
-    c = { bg = colors.green, fg = colors.base, gui = "bold" },
-  },
-  command = {
-    a = { bg = colors.base, fg = colors.peach, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.peach, gui = "bold" },
-    c = { bg = colors.peach, fg = colors.base, gui = "bold" },
-  },
-  visual = {
-    a = { bg = colors.base, fg = colors.mauve, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.mauve, gui = "bold" },
-    c = { bg = colors.mauve, fg = colors.base, gui = "bold" },
-  },
-  replace = {
-    a = { bg = colors.base, fg = colors.red, gui = "bold" },
-    b = { bg = colors.mantle, fg = colors.red, gui = "bold" },
-    c = { bg = colors.red, fg = colors.base, gui = "bold" },
-  },
-  inactive = {
-    a = { bg = transparent_bg, fg = colors.surface1 },
-    b = { bg = transparent_bg, fg = colors.surface1, gui = "bold" },
-    c = { bg = transparent_bg, fg = colors.overlay0 },
-  },
-}
-
-require('lualine').setup {
+  local custom_theme = {
+    normal = {
+      a = { bg = transparent_bg, fg = colors.lavender, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.lavender, gui = "bold" },
+      c = { bg = colors.lavender, fg = colors.base, gui = "bold" },
+    },
+    insert = {
+      a = { bg = transparent_bg, fg = colors.teal, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.teal, gui = "bold" },
+      c = { bg = colors.teal, fg = colors.base, gui = "bold" },
+    },
+    terminal = {
+      a = { bg = colors.base, fg = colors.green, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.green, gui = "bold" },
+      c = { bg = colors.green, fg = colors.base, gui = "bold" },
+    },
+    command = {
+      a = { bg = colors.base, fg = colors.peach, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.peach, gui = "bold" },
+      c = { bg = colors.peach, fg = colors.base, gui = "bold" },
+    },
+    visual = {
+      a = { bg = colors.base, fg = colors.mauve, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.mauve, gui = "bold" },
+      c = { bg = colors.mauve, fg = colors.base, gui = "bold" },
+    },
+    replace = {
+      a = { bg = colors.base, fg = colors.red, gui = "bold" },
+      b = { bg = colors.mantle, fg = colors.red, gui = "bold" },
+      c = { bg = colors.red, fg = colors.base, gui = "bold" },
+    },
+    inactive = {
+      a = { bg = transparent_bg, fg = colors.surface1 },
+      b = { bg = transparent_bg, fg = colors.surface1, gui = "bold" },
+      c = { bg = transparent_bg, fg = colors.overlay0 },
+    },
+  }
+  
+  require('lualine').setup {
     options = {
         theme = custom_theme,
         component_separators = '⏽',
@@ -80,5 +81,6 @@ require('lualine').setup {
       lualine_z = { 'location' },
     },
     tabline = {},
-}
+  }
+end
 

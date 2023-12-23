@@ -1,4 +1,4 @@
-require("toggleterm").setup {
+return {
   size = 12,
   open_mapping = [[<C-t>]],
   shade_filetypes = {},

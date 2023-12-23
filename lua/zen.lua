@@ -1,4 +1,4 @@
-require("zen-mode").setup({
+return {
   window = {
     backdrop = 1,
   },
@@ -26,5 +26,5 @@ require("zen-mode").setup({
       enabled = true,
     },
   }
-})
+}
 
