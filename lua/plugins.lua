@@ -108,6 +108,7 @@ return {
       require('toggleterm').setup(require('term'))
     end,
     lazy = true,
+    keys = '<C-t>',
   },
   
   {
