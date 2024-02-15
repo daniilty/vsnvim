@@ -161,14 +161,6 @@ return {
     lazy = true,
   },
   
-  {
-    'folke/zen-mode.nvim',
-    lazy = true,
-    config = function()
-      require("zen-mode").setup(require('zen'))
-    end,
-  },
-  
   -- autocomplete/language servers stuff
   {
     'hrsh7th/nvim-cmp',
