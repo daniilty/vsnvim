@@ -25,7 +25,6 @@ Dashboard uses VSCode logo, but this config is not intended to be similar to thi
   * Ctrl+t - toggle terminal
   * Ctrl+n - toggle file tree
   * Ctrl+s - toggle search field
-  * Ctrl+m - toggle zen mode
   * ZZ - in case you don't know how to exit vim
   * Esc - to exit telescope
   * Ctrl+u - rename function/variable/class/etc... using lsp
@@ -33,4 +32,5 @@ Dashboard uses VSCode logo, but this config is not intended to be similar to thi
   * Ctrl+i - go to implementation
   * Ctrl+d - go to definition
   * Ctrl+D - go to declaration
+  * Ctrl+e - lsp diagnostic
   * K - hover using lsp
