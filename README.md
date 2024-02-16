@@ -3,18 +3,15 @@
 This build of neovim is intended to give user a nice ide-like experience in their terminals.
 Dashboard uses VSCode logo, but this config is not intended to be similar to this garbage.
 
-![Screenshot](https://github.com/daniilty/vsnvim/blob/master/src/screenshot.png)
-
 ### Useful features
 
 * Lazy load(1.5x times faster than packer)
 * LSP support for go, c, rust, python, json, js, etc
 * Terminal, file explorer
-* Zen mode
 * Dashboard
 * Rainbow indents
 * Git signs
-* In file search
+* In file search(ripgrep is needed)
 
 ![Screenshot1](https://github.com/daniilty/vsnvim/blob/master/src/s1.png)
 ![Screenshot2](https://github.com/daniilty/vsnvim/blob/master/src/s2.png)
