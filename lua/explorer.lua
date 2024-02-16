@@ -1,4 +1,7 @@
 return {
+  update_focused_file = {
+    enable = true,
+  },
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
