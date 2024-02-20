@@ -199,7 +199,9 @@ return {
     'ray-x/go.nvim',
     lazy = true,
     config = function()
-      require('go').setup()
+      require('go').setup({
+        icons = { breakpoint = '', currentpos = '' }
+      })
     end,
     event = 'BufReadPost *.go',
     dependencies = {
