@@ -61,7 +61,7 @@ return function()
       },
       lualine_b = {},
       lualine_c = {
-        {'filename', separator = { left = '', right = '⏽' }, icon = ''},
+        {'filename', separator = { left = '', right = '⏽' }, icon = '󰈔'},
         {'branch', icon = '┃  '},
       },
       lualine_x = {

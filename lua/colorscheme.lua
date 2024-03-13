@@ -1,5 +1,6 @@
 local catppuccin = require("catppuccin")
 local colors = require("palettes").get_palette()
+local transparent_background = false
 
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -8,7 +9,7 @@ require("catppuccin").setup({
         dark = "mocha",
     },
     compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-    transparent_background = false,
+    transparent_background = transparent_background,
     term_colors = false,
     dim_inactive = {
         enabled = false,
@@ -69,11 +70,11 @@ require("catppuccin").setup({
 				CmpItemKindCopilot = { fg = colors.base, bg = colors.teal },
 		  	NvimTreeWinSeparator = {
 			    fg = colors.surface0,
-			    bg = O.transparent_background and C.none or C.base,
+			    bg = transparent_background and C.none or C.base,
 		    },
         WinSeparator = {
 			    fg = colors.surface0,
-			    bg = O.transparent_background and C.none or C.base,
+			    bg = transparent_background and C.none or C.base,
         },
     }
 	  end,   
