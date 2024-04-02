@@ -213,6 +213,16 @@ return {
   },
 
   {
+    "zeioth/garbage-day.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    opts = {
+      aggressive_mode = true,
+      retries = 4,
+    },
+  },
+
+  {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
