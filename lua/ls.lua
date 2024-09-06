@@ -44,7 +44,7 @@ return function()
   lspconfig.gopls.setup {cmd = {"gopls", "serve"}, settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}}, handlers = handlers}
   lspconfig.rust_analyzer.setup{handlers = handlers}
   lspconfig.html.setup{handlers = handlers,}
-  lspconfig.tsserver.setup{handlers = handlers}
+  lspconfig.ts_ls.setup{handlers = handlers}
   lspconfig.pyright.setup{handlers = handlers}
 
   local signs = {Error = " ", Warn = " ", Hint = " ", Info = " "}
@@ -65,7 +65,7 @@ return function()
 
   vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
       underline = true,
-      virtual_text = {spacing = 5, severity_limit = 'Warning'},
+      virtual_text = {spacing = 5},
       update_in_insert = true,
   })
 
