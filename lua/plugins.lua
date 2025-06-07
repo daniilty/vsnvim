@@ -150,15 +150,8 @@ return {
   },
 
   {
-    'nvim-telescope/telescope.nvim', version = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
     dependencies = { 'nvim-lua/plenary.nvim' },
-    lazy = true,
-  }, 
- 
-  {
-    'nvim-pack/nvim-spectre',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    lazy = true,
   },
   
   -- autocomplete/language servers stuff
